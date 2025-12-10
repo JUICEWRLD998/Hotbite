@@ -84,12 +84,9 @@ export default function About() {
 
             {/* Description */}
             <p className="text-gray-400 text-lg sm:text-xl leading-relaxed max-w-xl mx-auto lg:mx-0">
-              At Hotbite, we believe that every meal should be an experience to remember. 
-              Our journey began with a simple dream — to bring people together through the 
-              joy of authentic, flavorful cuisine. With handpicked ingredients, time-honored 
-              recipes, and a dash of creativity, we serve dishes that warm your heart and 
-              delight your taste buds. From our kitchen to your table, every bite tells a 
-              story of passion, quality, and love.
+              At Hotbite, every meal is crafted to be unforgettable. With handpicked ingredients 
+              and time-honored recipes, we serve dishes that warm your heart. From our kitchen 
+              to your table — every bite tells a story of passion and love.
             </p>
           </motion.div>
         </div>
