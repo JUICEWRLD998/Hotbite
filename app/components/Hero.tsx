@@ -10,7 +10,7 @@ export default function Hero() {
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-8 min-h-[calc(100vh-64px)]">
           {/* Left Side - Content */}
           <motion.div
-            className="w-full lg:w-1/2 text-center lg:text-left"
+            className="w-full lg:w-1/2 text-center lg:text-left order-2 lg:order-1"
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
@@ -42,7 +42,7 @@ export default function Hero() {
 
           {/* Right Side - Image */}
           <motion.div
-            className="w-full lg:w-1/2"
+            className="w-full lg:w-1/2 order-1 lg:order-2"
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
