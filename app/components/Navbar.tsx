@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { ShoppingBag, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -15,6 +16,7 @@ const navLinks = [
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
     <motion.nav
@@ -39,21 +41,28 @@ export default function Navbar() {
           {/* Desktop Navigation Links - Centered */}
           <div className="hidden md:flex items-center justify-center flex-1">
             <div className="flex items-center space-x-8">
-              {navLinks.map((link, index) => (
-                <motion.div
-                  key={link.name}
-                  initial={{ opacity: 0, y: -20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3, delay: index * 0.1 }}
-                >
-                  <Link
-                    href={link.href}
-                    className="nav-link text-gray-300 hover:text-white text-sm font-medium transition-all duration-300 relative py-2"
+              {navLinks.map((link, index) => {
+                const isActive = pathname === link.href;
+                return (
+                  <motion.div
+                    key={link.name}
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: index * 0.1 }}
                   >
-                    {link.name}
-                  </Link>
-                </motion.div>
-              ))}
+                    <Link
+                      href={link.href}
+                      className={`nav-link text-sm font-medium transition-all duration-300 relative py-2 ${
+                        isActive
+                          ? "text-[#c22929] nav-link-active"
+                          : "text-gray-300 hover:text-white"
+                      }`}
+                    >
+                      {link.name}
+                    </Link>
+                  </motion.div>
+                );
+              })}
             </div>
           </div>
 
@@ -97,22 +106,29 @@ export default function Navbar() {
               transition={{ duration: 0.3 }}
             >
               <div className="flex flex-col space-y-3 pt-4 border-t border-gray-700">
-                {navLinks.map((link, index) => (
-                  <motion.div
-                    key={link.name}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.2, delay: index * 0.05 }}
-                  >
-                    <Link
-                      href={link.href}
-                      className="text-gray-300 hover:text-white text-sm font-medium px-3 py-2 rounded-lg hover:bg-gray-800 transition-all duration-300 block"
-                      onClick={() => setMobileMenuOpen(false)}
+                {navLinks.map((link, index) => {
+                  const isActive = pathname === link.href;
+                  return (
+                    <motion.div
+                      key={link.name}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.2, delay: index * 0.05 }}
                     >
-                      {link.name}
-                    </Link>
-                  </motion.div>
-                ))}
+                      <Link
+                        href={link.href}
+                        className={`text-sm font-medium px-3 py-2 rounded-lg transition-all duration-300 block ${
+                          isActive
+                            ? "text-[#c22929] bg-[#c22929]/10"
+                            : "text-gray-300 hover:text-white hover:bg-gray-800"
+                        }`}
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        {link.name}
+                      </Link>
+                    </motion.div>
+                  );
+                })}
                 <motion.button
                   className="flex items-center justify-center gap-2 bg-[#c22929] hover:bg-[#a82222] text-white px-5 py-2.5 rounded-full font-medium transition-all duration-300 mt-2"
                   initial={{ opacity: 0, y: 10 }}

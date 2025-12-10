@@ -44,3 +44,8 @@ body {
 .nav-link:hover {
   color: #c22929;
 }
+
+/* Active nav link */
+.nav-link-active::after {
+  width: 100%;
+}
