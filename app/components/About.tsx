@@ -24,33 +24,9 @@ export default function About() {
         </motion.div>
 
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-16">
-          {/* Right Side - Content */}
-          <motion.div
-            className="w-full lg:w-1/2 text-center lg:text-left order-1 lg:order-2"
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            viewport={{ once: true }}
-          >
-            {/* Main Heading */}
-            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white leading-tight mb-6">
-              Passion for Great Food, Served with Love
-            </h3>
-
-            {/* Description */}
-            <p className="text-gray-400 text-lg sm:text-xl leading-relaxed max-w-xl mx-auto lg:mx-0">
-              At Hotbite, we believe that every meal should be an experience to remember. 
-              Our journey began with a simple dream — to bring people together through the 
-              joy of authentic, flavorful cuisine. With handpicked ingredients, time-honored 
-              recipes, and a dash of creativity, we serve dishes that warm your heart and 
-              delight your taste buds. From our kitchen to your table, every bite tells a 
-              story of passion, quality, and love.
-            </p>
-          </motion.div>
-
           {/* Left Side - Overlapping Images */}
           <motion.div
-            className="w-full lg:w-1/2 order-2 lg:order-1"
+            className="w-full lg:w-1/2"
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
@@ -91,6 +67,30 @@ export default function About() {
                 </div>
               </motion.div>
             </div>
+          </motion.div>
+
+          {/* Right Side - Content */}
+          <motion.div
+            className="w-full lg:w-1/2 text-center lg:text-left"
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true }}
+          >
+            {/* Main Heading */}
+            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white leading-tight mb-6">
+              Passion for Great Food, Served with Love
+            </h3>
+
+            {/* Description */}
+            <p className="text-gray-400 text-lg sm:text-xl leading-relaxed max-w-xl mx-auto lg:mx-0">
+              At Hotbite, we believe that every meal should be an experience to remember. 
+              Our journey began with a simple dream — to bring people together through the 
+              joy of authentic, flavorful cuisine. With handpicked ingredients, time-honored 
+              recipes, and a dash of creativity, we serve dishes that warm your heart and 
+              delight your taste buds. From our kitchen to your table, every bite tells a 
+              story of passion, quality, and love.
+            </p>
           </motion.div>
         </div>
       </div>
