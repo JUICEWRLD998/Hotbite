@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 export default function Hero() {
   return (
-    <section className="min-h-[calc(100vh-64px)] bg-[#121212] overflow-hidden">
+    <section id="home" className="min-h-[calc(100vh-64px)] bg-[#121212] overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-0">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-8 min-h-[calc(100vh-64px)]">
           {/* Left Side - Content */}

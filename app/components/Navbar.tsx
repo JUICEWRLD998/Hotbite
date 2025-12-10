@@ -7,11 +7,11 @@ import { ShoppingBag, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
-  { name: "Home", href: "/" },
-  { name: "About", href: "/about" },
-  { name: "Products", href: "/products" },
-  { name: "Location", href: "/location" },
-  { name: "Contact", href: "/contact" },
+  { name: "Home", href: "/#home" },
+  { name: "About", href: "/#about" },
+  { name: "Products", href: "/#products" },
+  { name: "Location", href: "/#location" },
+  { name: "Contact", href: "/#contact" },
 ];
 
 export default function Navbar() {
