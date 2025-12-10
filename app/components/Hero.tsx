@@ -67,7 +67,7 @@ export default function Hero() {
                 transition={{ duration: 0.3 }}
               >
                 <Image
-                  src="/home.jpg"
+                  src="/home3.jpg"
                   alt="Delicious food from Hotbite"
                   width={600}
                   height={350}
