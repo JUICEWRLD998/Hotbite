@@ -6,17 +6,17 @@ import { motion } from "framer-motion";
 const products = [
   {
     name: "Burger",
-    image: "/burger.jpg",
+    image: "/images/products/burger.jpg",
     description: "Juicy & Flavorful",
   },
   {
     name: "Sandwich",
-    image: "/sandwich.jpg",
+    image: "/images/products/sandwich.jpg",
     description: "Fresh & Crispy",
   },
   {
     name: "Kebab",
-    image: "/kebab.jpg",
+    image: "/images/products/kebab.jpg",
     description: "Grilled to Perfection",
   },
 ];

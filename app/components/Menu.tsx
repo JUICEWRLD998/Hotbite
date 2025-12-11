@@ -14,7 +14,7 @@ const menuCategories = [
       "Fire-kissed perfection straight from our grill. Juicy, tender, and bursting with smoky flavors that will transport your taste buds to culinary heaven.",
     ingredients:
       "Chargrilled proteins, caramelized onions, roasted peppers, garlic aioli, fresh herbs.",
-    images: ["/kebab.jpg", "/burger.jpg", "/sandwich.jpg"],
+    images: ["/images/menu/grilled/grilled1.jpg", "/images/menu/grilled/grilled2.jpg", "/images/menu/grilled/kebab.jpg"],
   },
   {
     id: "classic",
@@ -25,7 +25,7 @@ const menuCategories = [
       "Timeless recipes crafted with care. Our classics honor traditional flavors while delivering the quality and taste that keeps you coming back.",
     ingredients:
       "Premium beef, aged cheddar, vine-ripened tomatoes, crisp lettuce, house-made sauce.",
-    images: ["/sandwich.jpg", "/kebab.jpg", "/burger.jpg"],
+    images: ["/images/menu/classic/classy1.jpg", "/images/menu/classic/classy2.jpg", "/images/menu/classic/classy3.jpg"],
   },
   {
     id: "veggie",
@@ -36,7 +36,7 @@ const menuCategories = [
       "Garden-fresh and full of flavor. Wholesome ingredients come together to create dishes that are as nutritious as they are delicious.",
     ingredients:
       "Grilled zucchini, roasted chickpeas, avocado, mixed greens, lemon tahini dressing.",
-    images: ["/about.jpg", "/about1.jpg", "/home3.jpg"],
+    images: ["/images/menu/veggie/sandwich1.jpg", "/images/menu/veggie/sandwich2.jpg", "/images/menu/veggie/sandwich3.jpg"],
   },
 ];
 

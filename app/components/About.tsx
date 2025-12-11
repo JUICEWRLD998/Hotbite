@@ -42,7 +42,7 @@ export default function About() {
               >
                 <div className="relative w-full h-full rounded-2xl overflow-hidden border-4 border-white shadow-2xl">
                   <Image
-                    src="/about.jpg"
+                    src="/images/about/about.jpg"
                     alt="About Hotbite - Our kitchen"
                     fill
                     className="object-cover"
@@ -59,7 +59,7 @@ export default function About() {
               >
                 <div className="relative w-full h-full rounded-2xl overflow-hidden border-4 border-white shadow-2xl">
                   <Image
-                    src="/about1.jpg"
+                    src="/images/about/about1.jpg"
                     alt="About Hotbite - Our food"
                     fill
                     className="object-cover"
