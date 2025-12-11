@@ -11,21 +11,10 @@ const menuCategories = [
     title: "Grilled",
     available: "Wrap, Bowl, Box",
     description:
-      "Indulge in the perfect balance of crispy and cheesy with our Cheesy Crunch Wrap. Melted cheese meets fresh veggies and a touch of spice, all wrapped in a warm tortilla or served in a convenient box. Perfect for a quick bite or a satisfying meal!",
+      "Fire-kissed perfection straight from our grill. Juicy, tender, and bursting with smoky flavors that will transport your taste buds to culinary heaven.",
     ingredients:
-      "Crispy tortilla, melted cheese, fresh salad, signature sauce, and a side of golden fries.",
+      "Chargrilled proteins, caramelized onions, roasted peppers, garlic aioli, fresh herbs.",
     images: ["/kebab.jpg", "/burger.jpg", "/sandwich.jpg"],
-  },
-  {
-    id: "crunchy",
-    name: "Crunchy",
-    title: "Crunchy",
-    available: "Wrap, Bowl, Box",
-    description:
-      "Experience the ultimate crunch with our signature crispy bites. Golden-fried to perfection with a blend of spices that will leave you craving more. Served hot and fresh, just the way you like it!",
-    ingredients:
-      "Crispy coating, secret spice blend, fresh lettuce, tangy mayo, and pickled onions.",
-    images: ["/burger.jpg", "/sandwich.jpg", "/kebab.jpg"],
   },
   {
     id: "classic",
@@ -33,9 +22,9 @@ const menuCategories = [
     title: "Classic",
     available: "Wrap, Bowl, Box",
     description:
-      "Our timeless classics never go out of style. Crafted with traditional recipes and premium ingredients, these dishes bring back the authentic flavors you know and love.",
+      "Timeless recipes crafted with care. Our classics honor traditional flavors while delivering the quality and taste that keeps you coming back.",
     ingredients:
-      "Premium beef patty, fresh tomatoes, crisp lettuce, special sauce, and toasted buns.",
+      "Premium beef, aged cheddar, vine-ripened tomatoes, crisp lettuce, house-made sauce.",
     images: ["/sandwich.jpg", "/kebab.jpg", "/burger.jpg"],
   },
   {
@@ -44,9 +33,9 @@ const menuCategories = [
     title: "Veggie Delight",
     available: "Wrap, Bowl, Box",
     description:
-      "Fresh, flavorful, and packed with nutrients. Our veggie options are designed for those who love their greens without compromising on taste. A healthy choice that doesn't skimp on flavor!",
+      "Garden-fresh and full of flavor. Wholesome ingredients come together to create dishes that are as nutritious as they are delicious.",
     ingredients:
-      "Grilled vegetables, hummus, fresh greens, feta cheese, and herb dressing.",
+      "Grilled zucchini, roasted chickpeas, avocado, mixed greens, lemon tahini dressing.",
     images: ["/about.jpg", "/about1.jpg", "/home3.jpg"],
   },
 ];
@@ -56,7 +45,7 @@ export default function Menu() {
   const currentCategory = menuCategories.find((cat) => cat.id === activeCategory);
 
   return (
-    <section id="menu" className="py-20 bg-[#0a0a0a] overflow-hidden scroll-mt-16">
+    <section id="menu" className="py-20 bg-[#121212] overflow-hidden scroll-mt-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Title */}
         <motion.div
@@ -105,9 +94,8 @@ export default function Menu() {
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
         >
-          At Hotbite, we know that great food is all about variety. Whether you&apos;re a
-          meat lover, a fan of crispy bites, or all about fresh veggies, we&apos;ve got
-          something special for you.
+          Explore our carefully curated selection of dishes, each crafted with premium
+          ingredients and bold flavors to satisfy every craving.
         </motion.p>
 
         {/* Category Tabs */}
