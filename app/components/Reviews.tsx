@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 
 const reviews = [
@@ -134,13 +133,13 @@ export default function Reviews() {
                 <motion.div
                   whileHover={{ scale: 1.1 }}
                   transition={{ duration: 0.2 }}
-                  className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-white"
+                  className="w-12 h-12 rounded-full overflow-hidden border-2 border-white"
                 >
-                  <Image
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
                     src={review.avatar}
                     alt={review.author}
-                    fill
-                    className="object-cover"
+                    className="w-full h-full object-cover"
                   />
                 </motion.div>
                 <div>
