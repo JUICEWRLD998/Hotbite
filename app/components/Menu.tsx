@@ -140,44 +140,51 @@ export default function Menu() {
               className="flex flex-col lg:flex-row gap-8 lg:gap-12"
             >
               {/* Left Side - Text Content */}
-              <div className="w-full lg:w-2/5 order-2 lg:order-1">
-                <motion.h4
-                  className="text-2xl sm:text-3xl font-bold text-[#c22929] italic mb-4"
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.4, delay: 0.1 }}
-                >
-                  {currentCategory.title}
-                </motion.h4>
+              <div className="w-full lg:w-2/5 order-2 lg:order-1 flex flex-col justify-center">
+                <div className="border-l-4 border-[#c22929] pl-6">
+                  <motion.h4
+                    className="text-2xl sm:text-3xl font-bold text-[#c22929] italic mb-6"
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.4, delay: 0.1 }}
+                  >
+                    {currentCategory.title}
+                  </motion.h4>
 
-                <motion.p
-                  className="text-gray-400 text-sm mb-4"
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.4, delay: 0.15 }}
-                >
-                  <span className="font-semibold text-white">Available As:</span>{" "}
-                  {currentCategory.available}
-                </motion.p>
+                  <motion.div
+                    className="mb-6"
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.4, delay: 0.15 }}
+                  >
+                    <span className="text-xs uppercase tracking-widest text-[#c22929] font-semibold">
+                      Available As
+                    </span>
+                    <p className="text-white text-base mt-1">{currentCategory.available}</p>
+                  </motion.div>
 
-                <motion.p
-                  className="text-gray-400 text-base leading-relaxed mb-6"
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.4, delay: 0.2 }}
-                >
-                  {currentCategory.description}
-                </motion.p>
+                  <motion.p
+                    className="text-gray-300 text-base sm:text-lg leading-relaxed mb-6"
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.4, delay: 0.2 }}
+                  >
+                    {currentCategory.description}
+                  </motion.p>
 
-                <motion.p
-                  className="text-gray-400 text-sm"
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.4, delay: 0.25 }}
-                >
-                  <span className="font-semibold text-white">Ingredients:</span>{" "}
-                  {currentCategory.ingredients}
-                </motion.p>
+                  <motion.div
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.4, delay: 0.25 }}
+                  >
+                    <span className="text-xs uppercase tracking-widest text-[#c22929] font-semibold">
+                      Ingredients
+                    </span>
+                    <p className="text-gray-400 text-sm mt-1 leading-relaxed">
+                      {currentCategory.ingredients}
+                    </p>
+                  </motion.div>
+                </div>
               </div>
 
               {/* Right Side - Images Grid */}
