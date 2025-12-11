@@ -10,6 +10,7 @@ const reviews = [
     author: "Sarah Chen",
     role: "Food Blogger",
     avatar: "/images/reviews/review1.jpg",
+    rating: 5,
   },
   {
     quote:
@@ -17,6 +18,7 @@ const reviews = [
     author: "Marcus Johnson",
     role: "Regular Customer",
     avatar: "/images/reviews/review2.jpg",
+    rating: 4,
   },
   {
     quote:
@@ -24,13 +26,15 @@ const reviews = [
     author: "Emily Rodriguez",
     role: "Food Enthusiast",
     avatar: "/images/reviews/review3.jpg",
+    rating: 5,
   },
   {
     quote:
       "The atmosphere is welcoming, the food is outstanding. These are the meals I recommend to everyone.",
     author: "James Wilson",
     role: "Local Reviewer",
-    avatar: "/images/reviews/review4.jpg",
+    avatar: "/images/reviews/review4.jpeg",
+    rating: 4,
   },
 ];
 
@@ -98,7 +102,7 @@ export default function Reviews() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
               whileHover={{ y: -5 }}
-              className="p-8 rounded-2xl bg-[#1a1a1a] border border-white/10 hover:border-[#c22929]/50 transition-all duration-300"
+              className="p-8 rounded-2xl bg-[#c22929] border border-white/20 hover:bg-[#a82222] transition-all duration-300"
             >
               {/* Stars */}
               <motion.div
@@ -113,7 +117,7 @@ export default function Reviews() {
                     initial={{ opacity: 0, scale: 0 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     transition={{ delay: idx * 0.1 + 0.3 + i * 0.05 }}
-                    className="text-[#c22929] text-lg"
+                    className={`text-lg ${i < review.rating ? "text-yellow-400" : "text-white/30"}`}
                   >
                     ★
                   </motion.span>
@@ -121,7 +125,7 @@ export default function Reviews() {
               </motion.div>
 
               {/* Quote */}
-              <p className="text-gray-300 text-base sm:text-lg leading-relaxed mb-6 italic">
+              <p className="text-white text-base sm:text-lg leading-relaxed mb-6 italic">
                 &ldquo;{review.quote}&rdquo;
               </p>
 
@@ -130,7 +134,7 @@ export default function Reviews() {
                 <motion.div
                   whileHover={{ scale: 1.1 }}
                   transition={{ duration: 0.2 }}
-                  className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-[#c22929]/50"
+                  className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-white"
                 >
                   <Image
                     src={review.avatar}
@@ -141,7 +145,7 @@ export default function Reviews() {
                 </motion.div>
                 <div>
                   <p className="font-bold text-white">{review.author}</p>
-                  <p className="text-sm text-gray-400">{review.role}</p>
+                  <p className="text-sm text-white/70">{review.role}</p>
                 </div>
               </div>
             </motion.div>
