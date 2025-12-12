@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { ShoppingBag, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
+// Navigation links data
 const navLinks = [
   { name: "Home", href: "/#home" },
   { name: "About", href: "/#about" },
@@ -14,7 +15,8 @@ const navLinks = [
   {name: "Reviews", href: "/#reviews" },
   { name: "Contact", href: "/#contact" },
 ];
-
+ 
+// Navbar Component
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
