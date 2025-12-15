@@ -3,6 +3,8 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 
+
+// Product data
 const products = [
   {
     name: "Burger",

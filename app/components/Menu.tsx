@@ -4,6 +4,8 @@ import Image from "next/image";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
+
+// Menu categories data
 const menuCategories = [
   {
     id: "grilled",
