@@ -10,7 +10,7 @@ const righteous = Righteous({
 });
 
 export const metadata: Metadata = {
-  title: "Hotbite - Delicious Food Delivered",
+  title: "Hotbite - Savor the Flavor",
   description: "Order your favorite hot bites online",
 };
 
