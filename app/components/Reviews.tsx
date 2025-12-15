@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 
+// Review data
 const reviews = [
   {
     quote:
