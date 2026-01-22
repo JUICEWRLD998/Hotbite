@@ -62,12 +62,12 @@ export default function Hero() {
               
               {/* Main Image */}
               <motion.div
-                className="relative rounded-2xl overflow-hidden shadow-2xl shadow-black/50"
+                className="relative overflow-hidden  "
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
               >
                 <Image
-                  src="/images/hero/home3.jpg"
+                  src="/images/hero/hero-pic.png"
                   alt="Delicious food from Hotbite"
                   width={600}
                   height={350}
