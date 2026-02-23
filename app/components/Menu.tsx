@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ShoppingCart } from "lucide-react";
 import { useCart } from "../context/CartContext";
@@ -62,6 +62,15 @@ export default function Menu() {
   const [addedItem, setAddedItem] = useState(false);
   const { addItem } = useCart();
   const currentCategory = menuCategories.find((cat) => cat.id === activeCategory);
+  const timeoutRef = useRef<NodeJS.Timeout | undefined>(undefined);
+
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, []);
 
   const handleAddToCart = () => {
     if (!currentCategory) return;
@@ -78,7 +87,14 @@ export default function Menu() {
 
     addItem(product);
     setAddedItem(true);
-    setTimeout(() => setAddedItem(false), 2000);
+    
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+    
+    timeoutRef.current = setTimeout(() => {
+      setAddedItem(false);
+    }, 2000);
   };
 
   const getCurrentPrice = () => {

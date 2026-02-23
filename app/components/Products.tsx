@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { ShoppingCart } from "lucide-react";
 import { useCart } from "../context/CartContext";
 import { Product } from "../types/cart";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 // Product data
 const products: Product[] = [
@@ -38,12 +38,25 @@ const products: Product[] = [
 export default function Products() {
   const { addItem } = useCart();
   const [addedItems, setAddedItems] = useState<Record<string, boolean>>({});
+  const timeoutsRef = useRef<Record<string, NodeJS.Timeout>>({});
+
+  useEffect(() => {
+    return () => {
+      Object.values(timeoutsRef.current).forEach(clearTimeout);
+    };
+  }, []);
 
   const handleAddToCart = (product: Product) => {
     addItem(product);
-    setAddedItems({ ...addedItems, [product.id]: true });
-    setTimeout(() => {
+    setAddedItems(prev => ({ ...prev, [product.id]: true }));
+    
+    if (timeoutsRef.current[product.id]) {
+      clearTimeout(timeoutsRef.current[product.id]);
+    }
+    
+    timeoutsRef.current[product.id] = setTimeout(() => {
       setAddedItems((prev) => ({ ...prev, [product.id]: false }));
+      delete timeoutsRef.current[product.id];
     }, 2000);
   };
 
