@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Righteous } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
+import { CartProvider } from "./context/CartContext";
 
 const righteous = Righteous({
   weight: "400",
@@ -22,8 +23,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={righteous.variable}>
       <body className="antialiased">
-        <Navbar />
-        <main>{children}</main>
+        <CartProvider>
+          <Navbar />
+          <main>{children}</main>
+        </CartProvider>
       </body>
     </html>
   );
