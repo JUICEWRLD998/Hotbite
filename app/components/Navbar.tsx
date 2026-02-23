@@ -3,8 +3,9 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ShoppingBag, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import CartButton from "./CartButton";
 
 // Navigation links data
 const navLinks = [
@@ -76,14 +77,7 @@ export default function Navbar() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.4, delay: 0.5 }}
           >
-            <motion.button
-              className="flex items-center gap-2 bg-[#c22929] hover:bg-[#a82222] text-white px-5 py-2.5 rounded-full font-medium transition-colors duration-300"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <ShoppingBag size={18} />
-              <span>Order Now</span>
-            </motion.button>
+            <CartButton />
           </motion.div>
 
           {/* Mobile menu button */}
@@ -132,16 +126,14 @@ export default function Navbar() {
                     </motion.div>
                   );
                 })}
-                <motion.button
-                  className="flex items-center justify-center gap-2 bg-[#c22929] hover:bg-[#a82222] text-white px-5 py-2.5 rounded-full font-medium transition-all duration-300 mt-2"
+                <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3, delay: 0.3 }}
-                  whileTap={{ scale: 0.95 }}
+                  className="mt-2"
                 >
-                  <ShoppingBag size={18} />
-                  <span>Order Now</span>
-                </motion.button>
+                  <CartButton />
+                </motion.div>
               </div>
             </motion.div>
           )}

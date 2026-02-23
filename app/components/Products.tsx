@@ -2,28 +2,51 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-
+import { ShoppingCart } from "lucide-react";
+import { useCart } from "../context/CartContext";
+import { Product } from "../types/cart";
+import { useState } from "react";
 
 // Product data
-const products = [
+const products: Product[] = [
   {
+    id: "burger-classic",
     name: "Burger",
+    price: 199,
     image: "/images/products/burger.jpg",
     description: "Juicy & Flavorful",
+    category: "product",
   },
   {
+    id: "sandwich-fresh",
     name: "Sandwich",
+    price: 149,
     image: "/images/products/sandwich.jpg",
     description: "Fresh & Crispy",
+    category: "product",
   },
   {
+    id: "kebab-grilled",
     name: "Kebab",
+    price: 249,
     image: "/images/products/kebab.jpg",
     description: "Grilled to Perfection",
+    category: "product",
   },
 ];
 
 export default function Products() {
+  const { addItem } = useCart();
+  const [addedItems, setAddedItems] = useState<Record<string, boolean>>({});
+
+  const handleAddToCart = (product: Product) => {
+    addItem(product);
+    setAddedItems({ ...addedItems, [product.id]: true });
+    setTimeout(() => {
+      setAddedItems((prev) => ({ ...prev, [product.id]: false }));
+    }, 2000);
+  };
+
   return (
     <section id="products" className="py-20 bg-[#121212] overflow-hidden scroll-mt-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -97,6 +120,22 @@ export default function Products() {
                   <div className="absolute bottom-0 left-0 right-0 p-6">
                     <h4 className="text-2xl font-bold text-white mb-1">{product.name}</h4>
                     <p className="text-gray-300 text-sm">{product.description}</p>
+                    <div className="flex items-center justify-between mt-4">
+                      <span className="text-2xl font-bold text-[#c22929]">₹{product.price}</span>
+                      <motion.button
+                        onClick={() => handleAddToCart(product)}
+                        className={`flex items-center gap-2 px-4 py-2 rounded-full font-medium transition-all duration-300 ${
+                          addedItems[product.id]
+                            ? "bg-green-600 text-white"
+                            : "bg-[#c22929] hover:bg-[#a82222] text-white"
+                        }`}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        <ShoppingCart size={18} />
+                        <span>{addedItems[product.id] ? "Added!" : "Add"}</span>
+                      </motion.button>
+                    </div>
                   </div>
                 </div>
               </motion.div>

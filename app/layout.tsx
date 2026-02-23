@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Righteous } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
+import CartSidebar from "./components/CartSidebar";
 import { CartProvider } from "./context/CartContext";
 
 const righteous = Righteous({
@@ -26,6 +27,7 @@ export default function RootLayout({
         <CartProvider>
           <Navbar />
           <main>{children}</main>
+          <CartSidebar />
         </CartProvider>
       </body>
     </html>

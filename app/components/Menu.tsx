@@ -3,7 +3,11 @@
 import Image from "next/image";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { ShoppingCart } from "lucide-react";
+import { useCart } from "../context/CartContext";
+import { Product } from "../types/cart";
 
+type MenuSize = 'wrap' | 'bowl' | 'box';
 
 // Menu categories data
 const menuCategories = [
@@ -12,6 +16,7 @@ const menuCategories = [
     name: "Grilled",
     title: "Grilled",
     available: "Wrap, Bowl, Box",
+    basePrice: 179,
     description:
       "Fire-kissed perfection straight from our grill. Juicy, tender, and bursting with smoky flavors that will transport your taste buds to culinary heaven.",
     ingredients:
@@ -23,6 +28,7 @@ const menuCategories = [
     name: "Classic",
     title: "Classic",
     available: "Wrap, Bowl, Box",
+    basePrice: 159,
     description:
       "Timeless recipes crafted with care. Our classics honor traditional flavors while delivering the quality and taste that keeps you coming back.",
     ingredients:
@@ -34,6 +40,7 @@ const menuCategories = [
     name: "Veggie Delight",
     title: "Veggie Delight",
     available: "Wrap, Bowl, Box",
+    basePrice: 139,
     description:
       "Garden-fresh and full of flavor. Wholesome ingredients come together to create dishes that are as nutritious as they are delicious.",
     ingredients:
@@ -42,9 +49,42 @@ const menuCategories = [
   },
 ];
 
+// Size pricing (added to base price)
+const sizePricing: Record<MenuSize, number> = {
+  wrap: 0,
+  bowl: 30,
+  box: 60,
+};
+
 export default function Menu() {
   const [activeCategory, setActiveCategory] = useState("grilled");
+  const [selectedSize, setSelectedSize] = useState<MenuSize>("wrap");
+  const [addedItem, setAddedItem] = useState(false);
+  const { addItem } = useCart();
   const currentCategory = menuCategories.find((cat) => cat.id === activeCategory);
+
+  const handleAddToCart = () => {
+    if (!currentCategory) return;
+    
+    const product: Product = {
+      id: currentCategory.id,
+      name: currentCategory.name,
+      price: currentCategory.basePrice + sizePricing[selectedSize],
+      image: currentCategory.images[0],
+      description: currentCategory.description,
+      category: "menu",
+      size: selectedSize,
+    };
+
+    addItem(product);
+    setAddedItem(true);
+    setTimeout(() => setAddedItem(false), 2000);
+  };
+
+  const getCurrentPrice = () => {
+    if (!currentCategory) return 0;
+    return currentCategory.basePrice + sizePricing[selectedSize];
+  };
 
   return (
     <section id="menu" className="py-20 bg-[#121212] overflow-hidden scroll-mt-16">
@@ -185,6 +225,55 @@ export default function Menu() {
                     <p className="text-gray-400 text-sm mt-1 leading-relaxed">
                       {currentCategory.ingredients}
                     </p>
+                  </motion.div>
+
+                  {/* Size Selection and Add to Cart */}
+                  <motion.div
+                    className="mt-8 space-y-4"
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.4, delay: 0.3 }}
+                  >
+                    <div>
+                      <span className="text-xs uppercase tracking-widest text-[#c22929] font-semibold block mb-3">
+                        Choose Your Size
+                      </span>
+                      <div className="flex gap-3">
+                        {(Object.keys(sizePricing) as MenuSize[]).map((size) => (
+                          <button
+                            key={size}
+                            onClick={() => setSelectedSize(size)}
+                            className={`px-4 py-2 rounded-lg font-medium capitalize transition-all duration-300 ${
+                              selectedSize === size
+                                ? "bg-[#c22929] text-white"
+                                : "bg-gray-800 text-gray-400 hover:bg-gray-700"
+                            }`}
+                          >
+                            {size}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="flex items-center gap-4 pt-2">
+                      <div>
+                        <span className="text-sm text-gray-400">Price</span>
+                        <p className="text-3xl font-bold text-white">₹{getCurrentPrice()}</p>
+                      </div>
+                      <motion.button
+                        onClick={handleAddToCart}
+                        className={`flex items-center gap-2 px-6 py-3 rounded-full font-medium transition-all duration-300 ml-auto ${
+                          addedItem
+                            ? "bg-green-600 text-white"
+                            : "bg-[#c22929] hover:bg-[#a82222] text-white"
+                        }`}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        <ShoppingCart size={20} />
+                        <span>{addedItem ? "Added to Cart!" : "Add to Cart"}</span>
+                      </motion.button>
+                    </div>
                   </motion.div>
                 </div>
               </div>
