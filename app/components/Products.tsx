@@ -94,7 +94,7 @@ export default function Products() {
 
         {/* Description */}
         <motion.p
-          className="text-gray-400 text-lg sm:text-xl text-center max-w-2xl mx-auto mb-12"
+          className="text-white text-lg sm:text-xl text-center max-w-2xl mx-auto mb-12"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
@@ -134,7 +134,7 @@ export default function Products() {
                     <h4 className="text-2xl font-bold text-white mb-1">{product.name}</h4>
                     <p className="text-gray-300 text-sm">{product.description}</p>
                     <div className="flex items-center justify-between mt-4">
-                      <span className="text-2xl font-bold text-[#c22929]">₹{product.price}</span>
+                      <span className="text-2xl font-bold text-[#c22929]">${product.price}</span>
                       <motion.button
                         onClick={() => handleAddToCart(product)}
                         className={`flex items-center gap-2 px-4 py-2 rounded-full font-medium transition-all duration-300 ${

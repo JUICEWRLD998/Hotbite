@@ -274,7 +274,7 @@ export default function Menu() {
                     <div className="flex items-center gap-4 pt-2">
                       <div>
                         <span className="text-sm text-gray-400">Price</span>
-                        <p className="text-3xl font-bold text-white">₹{getCurrentPrice()}</p>
+                        <p className="text-3xl font-bold text-white">${getCurrentPrice()}</p>
                       </div>
                       <motion.button
                         onClick={handleAddToCart}

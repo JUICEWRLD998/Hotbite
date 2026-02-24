@@ -116,7 +116,7 @@ const cartReducer = (state: CartState, action: CartAction): CartState => {
 const calculateTotals = (items: CartItem[]): CartTotals => {
   const subtotal = items.reduce((total, item) => total + item.price * item.quantity, 0);
   const tax = subtotal * 0.05; // 5% tax
-  const deliveryFee = subtotal > 0 ? 50 : 0; // ₹50 delivery fee, free if cart is empty
+  const deliveryFee = subtotal > 0 ? 5 : 0; // $5 delivery fee, free if cart is empty
   const total = subtotal + tax + deliveryFee;
 
   return {

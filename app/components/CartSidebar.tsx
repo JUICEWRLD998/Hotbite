@@ -102,7 +102,7 @@ export default function CartSidebar() {
                           </p>
                         )}
                         <div className="flex items-center justify-between">
-                          <span className="text-[#c22929] font-bold">₹{item.price}</span>
+                          <span className="text-[#c22929] font-bold">${item.price}</span>
                           
                           {/* Quantity Controls */}
                           <div className="flex items-center gap-2">
@@ -145,19 +145,19 @@ export default function CartSidebar() {
                 <div className="space-y-2 mb-4">
                   <div className="flex justify-between text-gray-400 text-sm">
                     <span>Subtotal</span>
-                    <span>₹{totals.subtotal.toFixed(2)}</span>
+                    <span>${totals.subtotal.toFixed(2)}</span>
                   </div>
                   <div className="flex justify-between text-gray-400 text-sm">
                     <span>Tax (5%)</span>
-                    <span>₹{totals.tax.toFixed(2)}</span>
+                    <span>${totals.tax.toFixed(2)}</span>
                   </div>
                   <div className="flex justify-between text-gray-400 text-sm">
                     <span>Delivery Fee</span>
-                    <span>₹{totals.deliveryFee.toFixed(2)}</span>
+                    <span>${totals.deliveryFee.toFixed(2)}</span>
                   </div>
                   <div className="flex justify-between text-white text-lg font-bold pt-2 border-t border-gray-700">
                     <span>Total</span>
-                    <span className="text-[#c22929]">₹{totals.total.toFixed(2)}</span>
+                    <span className="text-[#c22929]">${totals.total.toFixed(2)}</span>
                   </div>
                 </div>
 
